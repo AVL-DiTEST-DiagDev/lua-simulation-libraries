@@ -1,17 +1,14 @@
 --[[
-    Convert the given string from hexadecimal to ASCII notation
+    Convert the given number to hexadecimal notation
 ]]
-function hexToAscii(str)
-    return (str:gsub('..', function (cc)
-        return string.char(tonumber(cc, 16))
-    end))
+function numberToHex(num)
+	return string.format('%x', num)
 end
 
 --[[
-    Convert the given string from ASCII to hexadecimal notation
+    Convert the given ASCII string to hexadecimal notation
 ]]
 function asciiToHex(str)
-    return (str:gsub('.', function (c)
-        return string.format('%02X', string.byte(c))
-    end))
+	return (str:gsub(".", function(char) return string.format("%2x", char:byte()) end))
 end
+
